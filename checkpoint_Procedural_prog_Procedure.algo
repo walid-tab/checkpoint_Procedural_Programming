@@ -1,0 +1,38 @@
+PROCEDURE dot_product(VAR  vect-A : ARRAY_OF INTEGER[n],VAR  vect-B : ARRAY_OF INTEGER[n])
+VAR
+    i:INTEGER;
+    product:INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        product := product + vect-A[i] * vect-B[i];
+    END_FOR
+    //Ajouter l'affichage si les deux vecteurs sont orthogonaux (dot_product=0) ou non dans la procédure
+    IF ((dot_product(vect-A,vect-B))=0) THEN
+        write("les deux vecteurs sont orthogonaux");
+    ELSE
+        write("les deux vecteurs ne  sont pas orthogonaux");
+    END_IF
+
+END
+ALGORITHM dot_product_with_procedure
+VAR
+    // x, y, et z sont les coordonnées d'un vecteur donc taille du vecteur est 3 : vect[3]
+    n:INTEGER:=3
+    vect-A : ARRAY_OF INTEGER[n];
+    vect-B : ARRAY_OF INTEGER[n];
+
+BEGIN
+    //saisir les coordonnées du vecteur A
+    FOR 0 FROM min TO n-1 STEP 1  DO
+        read(vect-A[i])
+    END_FOR
+
+    //saisir les coordonnées du vecteur B
+    FOR 0 FROM min TO n-1 STEP 1  DO
+        read(vect-B[i]);
+    END_FOR
+
+    //appel du procedure dot_product pour afficher si les deux vecteurs sont orthogonaux (dot_product=0) ou non 
+    dot_product(vect-A,vect-B)
+    
+END
